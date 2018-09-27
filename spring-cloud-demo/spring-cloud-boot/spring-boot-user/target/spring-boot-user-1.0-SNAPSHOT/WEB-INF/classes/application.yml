@@ -1,0 +1,31 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: springboot-user  #全部小写
+
+
+#####################################################################################################
+# mysql 属性配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test1
+    username: root
+    password: root
+
+#####################################################################################################
+# mybatis mapper xml 配置
+mybatis:
+  type-aliases-package:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  config-location: classpath:mybatis/mybatis-config.xml
+
+#####################################################################################################
+
+
+
+
+
+
+
+

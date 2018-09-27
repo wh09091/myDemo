@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: spring-boot-user
+Implementation-Version: 1.0-SNAPSHOT
+Built-By: Wangjin
+Implementation-Vendor-Id: com.wangjin
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_45
+Main-Class: ${start-class}
+
