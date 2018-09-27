@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="base.definition" template="/WEB-INF/jsp/main.jsp">
+        <put-attribute name="title" value="管理平台" />
+        <put-attribute name="header" value="/WEB-INF/jsp/header.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/jsp/menu.jsp" />
+        <put-attribute name="body" value="" />
+    </definition>
+
+    <definition name="welcome" extends="base.definition">
+        <put-attribute name="title" value="主页" />
+        <put-attribute name="body" value="/WEB-INF/jsp/welcome.jsp" />
+    </definition>
+
+
+    <definition name="project/addDeclarePageTiles" extends="base.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/project/addDeclarePage.jsp" />
+    </definition>
+    <definition name="project/taskpageTiles" extends="base.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/project/taskpage.jsp" />
+    </definition>
+    <definition name="project/projectPageTiles" extends="base.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/project/projectPage.jsp" />
+    </definition>
+    <definition name="leave/processRecordTiles" extends="base.definition">
+        <put-attribute name="body" value="/WEB-INF/jsp/project/processRecord.jsp" />
+    </definition>
+</tiles-definitions>

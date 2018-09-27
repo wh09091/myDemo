@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangjin.dao.ProjectDao">
+    <resultMap id="BaseResultMap" type="com.wangjin.pojo.Project">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="projectName" jdbcType="VARCHAR" property="projectName" />
+        <result column="proposer" jdbcType="VARCHAR" property="proposer" />
+        <result column="processId" jdbcType="VARCHAR" property="processId" />
+        <result column="taskId" jdbcType="VARCHAR" property="taskId" />
+        <result column="taskName" jdbcType="VARCHAR" property="taskName" />
+        <result column="applyTime" jdbcType="TIMESTAMP" property="applyTime" />
+        <result column="applyUser" jdbcType="VARCHAR" property="applyUser" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, projectName, proposer, processId, taskId, taskName, applyTime, applyUser
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from project
+        where id = #{id}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from project
+        where id = #{id}
+    </delete>
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.wangjin.pojo.Project">
+        insert into project ( id, projectName, proposer, processId, taskId, taskName, applyTime, applyUser)
+        values (#{id}, #{projectName}, #{proposer}, #{processId}, #{taskId}, #{taskName}, #{applyTime}, #{applyUser})
+    </insert>
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.wangjin.pojo.Project">
+        insert into leave_record
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="projectName != null">
+                projectName,
+            </if>
+            <if test="proposer != null">
+                proposer,
+            </if>
+            <if test="processId != null">
+                processId,
+            </if>
+            <if test="taskId != null">
+                taskId,
+            </if>
+            <if test="taskName != null">
+                taskName,
+            </if>
+            <if test="applyTime != null">
+                applyTime,
+            </if>
+            <if test="applyUser != null">
+                applyUser,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="projectName != null">
+                #{projectName},
+            </if>
+            <if test="proposer != null">
+                #{proposer},
+            </if>
+            <if test="processId != null">
+                #{processId},
+            </if>
+            <if test="taskId != null">
+                #{taskId},
+            </if>
+            <if test="taskName != null">
+                #{taskName,jdbcType=VARCHAR},
+            </if>
+            <if test="applyTime != null">
+                #{applyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="applyUser != null">
+                #{applyUser,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.wangjin.pojo.Project">
+        update project
+        <set>
+            <if test="projectName != null">
+                projectName = #{projectName},
+            </if>
+            <if test="proposer != null">
+                proposer = #{proposer},
+            </if>
+            <if test="processId != null">
+                processId = #{processId},
+            </if>
+            <if test="taskId != null">
+                taskId = #{taskId},
+            </if>
+            <if test="taskName != null">
+                taskName = #{taskName},
+            </if>
+            <if test="applyTime != null">
+                applyTime = #{applyTime},
+            </if>
+            <if test="applyUser != null">
+                applyUser = #{applyUser},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>
